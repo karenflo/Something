@@ -22,9 +22,9 @@ import Time
 
 main =
   Browser.element
-    { init = init
+    { init = (\_ -> (Model, Cmd.none))
     , view = view
-    , update = update
+    , update = (\msg model -> ((update msg model), Cmd.none))
     , subscriptions = subscriptions
     }
 
@@ -56,25 +56,14 @@ type alias Point =
 
 initPlayer = Entity (Point 500 800)
 
-init : () -> (Model, Cmd Msg)
-init _ =
-  ( Model initPlayer []
-  , Cmd.none
-  )
+init : Model
+init = Model initPlayer []
 
 
 
 -- UPDATE
 
-type 
-
-type alias Msg = 
-  { 
-  }
-
-
-
-update : Msg -> Model -> (Model, Cmd Msg)
+update : Msg -> Model -> Model
 update msg model =
   -- TODO 2020.04.15 (RP) - Write the update, one we have a more solid understaning on the langauge
 
