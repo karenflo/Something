@@ -28,26 +28,27 @@ main =
     , subscriptions = subscriptions
     }
 
-
-
 -- MODEL
 
-
+-- Our models consists of a our player and current inputs
 type alias Model =
   { player : Entity
   , inputs : [Key]
   }
 
-type Key 
-  = Up 
+-- A Key pressed by the player
+type Key
+  = Up
   | Down
   | Left
   | Right
 
+-- An Entity has a position
 type alias Entity = 
   { position : Point
   }
 
+-- A Point has an x and a y corrdnate
 type alias Point = 
   { x : Int
   , y : Int
@@ -75,6 +76,7 @@ type alias Msg =
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
+  -- TODO 2020.04.15 (RP) - Write the update, one we have a more solid understaning on the langauge
 
 -- SUBSCRIPTIONS
 
@@ -82,6 +84,7 @@ update msg model =
 subscriptions : Model -> Sub Msg
 subscriptions model =
   Time.every 1000 Tick
+  -- TODO 2020.04.15 (RP) - Tick rate maybe 60 times a second
 
 
 
@@ -89,4 +92,5 @@ subscriptions model =
 
 
 view : Model -> Html Msg
-view model =
+view model = 
+  -- TODO 2020.04.15 (RP) - Render the model, need to learn elm html and elm svg
